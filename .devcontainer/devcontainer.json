@@ -3,11 +3,12 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    "remoteUser": "root",
-    "postCreateCommand": "chmod -R o-w /workspaces/${localWorkspaceFolderBasename} && chmod -R u+rwX,go= /root/.ssh",
+    "remoteUser": "dev",
+    "postCreateCommand": "chmod -R o-w /workspaces/${localWorkspaceFolderBasename} && chmod -R u+rwX,go= /home/dev/.ssh",
     "mounts": [
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.secrets,target=/root/.secrets,type=bind,consistency=cached",
-        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.keys,target=/root/.keys,type=bind,consistency=cached"
+        // Cross-platform home directory: one of the two environment variables will always be empty
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/dev/.ssh,type=bind,consistency=cached",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.secrets,target=/home/dev/.secrets,type=bind,consistency=cached",
+        "source=${localEnv:HOME}${localEnv:USERPROFILE}/.keys,target=/home/dev/.keys,type=bind,consistency=cached"
     ]
 }
