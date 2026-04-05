@@ -18,6 +18,8 @@
   environment:
     EXTERNAL_URL: "{{ gitlab_domain }}"
 
+# TODO: Return secret automatically outside of CI/CD and when explicitly requested
+
 - name: Configure GitLab # TODO: Add filesystem permissions
   ansible.builtin.template:
     src: templates/gitlab.rb.j2
