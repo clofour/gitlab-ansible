@@ -1,0 +1,16 @@
+{
+    "name": "Debian",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "remoteUser": "root",
+    "postCreateCommand": "chmod -R o-w /workspaces/${localWorkspaceFolderBasename} && chmod -R u+rwX,go= /root/.ssh",
+    "mounts": [
+        "source=c/Users/me/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+        "source=c/Users/me/.secrets,target=/root/.secrets,type=bind,consistency=cached",
+        "source=c/Users/me/.keys,target=/root/.keys,type=bind,consistency=cached"
+    ],
+    "containerEnv": {
+        "DIGITALOCEAN_TOKEN": "${localEnv:DIGITALOCEAN_TOKEN}"
+    }
+}

@@ -15,3 +15,9 @@
   ansible.builtin.apt:
     name: 1
     state: present
+
+- name: Configure GitLab
+  ansible.builtin.template:
+    src: templates/gitlab.rb.j2
+    dest: 
+
