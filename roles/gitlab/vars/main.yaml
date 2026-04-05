@@ -1,0 +1,4 @@
+---
+
+gitlab_repo_url: "https://packages.gitlab.com/gitlab/gitlab-ce"
+gitlab_key_url: "https://packages.gitlab.com/gpgkey/gpg.key"

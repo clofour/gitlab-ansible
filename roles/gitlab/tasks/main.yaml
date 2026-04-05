@@ -1,0 +1,17 @@
+---
+
+- name: Add GitLab repository and key
+  ansible.builtin.deb822_repository:
+    name: gitlab_gitlab-ce
+    types: [deb]
+    uris: "{{ gitlab_repo_url }}"
+    suites: "{{ ansible_distribution_release }}"
+    components: [main]
+    architectures: ["{{ ansible_architecture }}"]
+    signed_by: "{{ gitlab_key_url }}"
+    state: present
+
+- name: Install GitLab
+  ansible.builtin.apt:
+    name: 1
+    state: present

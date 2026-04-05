@@ -1,0 +1,27 @@
+---
+
+accounts_system_groups:
+
+accounts_system_users:
+
+accounts_groups:
+  - name: ansible
+    gid: 1001
+    state: present
+  - name: devs
+    gid: 1002
+    state: present
+
+accounts_users:
+  - name: ansible
+    uid: 1001
+    group: ansible
+    sudo: "ALL=(ALL:ALL) NOPASSWD:ALL"
+    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAID8yRBgPWnp0V/AiblPJN+kpA1zCNU/Y0+LU+idA7x8N"
+    state: present
+  - name: bluetangerine
+    uid: 1002
+    group: devs
+    sudo: "ALL=(ALL:ALL) NOPASSWD:ALL"
+    state: present
+    ssh_key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIH2qsYlxnmhehVYkUbXh5SAM4YUMei+hWWXGJvmsGPpI"

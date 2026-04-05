@@ -1,0 +1,13 @@
+---
+
+- name: Deploy to servers
+  become: true
+  hosts: all
+  roles:
+    - pre
+    - sshd
+    - accounts
+    - ssl
+    - grafana
+    - ufw
+    - fail2ban

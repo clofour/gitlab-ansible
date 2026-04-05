@@ -1,0 +1,11 @@
+---
+
+- name: Restart Loki
+  ansible.builtin.service:
+    name: loki
+    state: restarted
+
+- name: Restart Grafana
+  ansible.builtin.service:
+    name: grafana-server
+    state: restarted
