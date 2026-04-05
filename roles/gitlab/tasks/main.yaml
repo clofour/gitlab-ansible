@@ -13,11 +13,16 @@
 
 - name: Install GitLab
   ansible.builtin.apt:
-    name: 1
+    name: gitlab-ce
     state: present
+  environment:
+    EXTERNAL_URL: "{{ gitlab_domain }}"
 
 - name: Configure GitLab # TODO: Add filesystem permissions
   ansible.builtin.template:
     src: templates/gitlab.rb.j2
     dest: "{{ gitlab_config_file }}"
+    owner: root
+    group: root
+    mode: "0640"
   notify: Reconfigure GitLab
