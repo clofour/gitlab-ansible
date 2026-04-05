@@ -16,8 +16,8 @@
     name: 1
     state: present
 
-- name: Configure GitLab
+- name: Configure GitLab # TODO: Add filesystem permissions
   ansible.builtin.template:
     src: templates/gitlab.rb.j2
-    dest: 
-
+    dest: "{{ gitlab_config_file }}"
+  notify: Reconfigure GitLab
