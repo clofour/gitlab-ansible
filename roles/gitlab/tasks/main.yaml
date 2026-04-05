@@ -26,5 +26,5 @@
     dest: "{{ gitlab_config_file }}"
     owner: root
     group: root
-    mode: "0640"
+    mode: "0600"
   notify: Reconfigure GitLab

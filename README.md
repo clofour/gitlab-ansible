@@ -1,8 +1,12 @@
+# GitLab Omnibus deployment with Ansible
+
 This is a deployment of GitLab Omnibus with Ansible. It can be used on bare metal/VMs for <1000 users.
 
 Note that it has not been tested. It is also incomplete, with various functionality gaps and bugs.
 
 # Usage
-1. Set up an inventory, with the "env" and "grafana_secrets" parameters
+
+1. Set up Ansible collections with `ansible-galaxy install -r requirements.yaml` 
+2. Set up an inventory, with the "env", "grafana_secrets" and "domain" parameters
 3. Place a certificate at ~/.secrets/[env]/domain.cert.pem and a private key at ~/.secrets/[env]/private.key.pem
-4. Run the playbook with your inventory
+4. Run the playbook with `ansible-playbook -i ./inventories/[inventory name] site.yaml`
