@@ -13,11 +13,18 @@
 
 - name: Install GitLab
   ansible.builtin.apt:
-    name: 1
+    name: gitlab-ce
     state: present
+  environment:
+    EXTERNAL_URL: "{{ gitlab_domain }}"
+
+# TODO: Return secret automatically outside of CI/CD and when explicitly requested
 
 - name: Configure GitLab # TODO: Add filesystem permissions
   ansible.builtin.template:
     src: templates/gitlab.rb.j2
     dest: "{{ gitlab_config_file }}"
+    owner: root
+    group: root
+    mode: "0600"
   notify: Reconfigure GitLab
