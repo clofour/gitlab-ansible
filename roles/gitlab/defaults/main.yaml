@@ -4,3 +4,4 @@ gitlab_repo_url: "https://packages.gitlab.com/gitlab/gitlab-ce"
 gitlab_key_url: "https://packages.gitlab.com/gpgkey/gpg.key"
 gitlab_config_dir: /etc/gitlab
 gitlab_config_file: "{{ gitlab_config_dir }}/gitlab.rb"
+gitlab_domain: "https://gitlab.{{ domain }}"
