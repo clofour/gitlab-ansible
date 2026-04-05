@@ -9,8 +9,5 @@
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.secrets,target=/root/.secrets,type=bind,consistency=cached",
         "source=${localEnv:HOME}${localEnv:USERPROFILE}/.keys,target=/root/.keys,type=bind,consistency=cached"
-    ],
-    "containerEnv": {
-        "DIGITALOCEAN_TOKEN": "${localEnv:DIGITALOCEAN_TOKEN}"
-    }
+    ]
 }
